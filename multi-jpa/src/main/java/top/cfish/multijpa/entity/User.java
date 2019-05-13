@@ -1,4 +1,4 @@
-package top.cfish.basicjpa.entity;
+package top.cfish.multijpa.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
