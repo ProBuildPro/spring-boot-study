@@ -1,0 +1,62 @@
+# key file
+
+
+# private file
+logs/
+gist/
+*.log
+*.logs
+*.doc
+*.docx
+*.ppt
+*.pptx
+*.key
+*.xls
+*.xlsx
+
+# java ignore
+target/
+*.class
+*.jar
+*.war
+*.zip
+*.tar
+*.gz
+
+# STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# idea ignore
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# eclipse ignore
+.settings/
+.project
+.classpath
+
+# VS Code
+.vscode/
+
+# temp ignore
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system ignore
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
