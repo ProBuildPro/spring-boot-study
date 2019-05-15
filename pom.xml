@@ -11,7 +11,12 @@
 
 	<modules>
 		<module>basic-web</module>
+		<module>basic-jpa</module>
+		<module>multi-jpa</module>
+		<module>mybatis</module>
+		<module>mybatis-annotation</module>
         <module>druid</module>
-    </modules>
+		<module>multi-druid</module>
+	</modules>
 
 </project>
