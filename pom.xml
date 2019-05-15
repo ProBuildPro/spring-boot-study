@@ -11,6 +11,7 @@
 
 	<modules>
 		<module>basic-web</module>
-	</modules>
+        <module>druid</module>
+    </modules>
 
 </project>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.cfish.multidruid.mapper.one.UserOneMapper">
+    <resultMap id="BaseResultMap" type="top.cfish.multidruid.entity.UserEntity">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="username" property="username" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="email" property="email" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="question" property="question" jdbcType="VARCHAR"/>
+        <result column="answer" property="answer" jdbcType="VARCHAR"/>
+        <result column="role" property="role" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+      id,username,password,email,phone,question,answer,role,create_time,update_time
+    </sql>
+
+    <select id="getOne" parameterType="Integer" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM user
+        WHERE id = #{id}
+    </select>
+
+    <select id="getAll" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM user
+    </select>
+
+    <insert id="insert" parameterType="top.cfish.multidruid.entity.UserEntity">
+        INSERT INTO
+        user
+        (username,password,email,phone,question,answer,role,create_time,update_time)
+        VALUES
+        (#{username}, #{password}, #{email}, #{phone}, #{question}, #{answer}, #{role}, now(), now())
+    </insert>
+
+    <update id="update" parameterType="top.cfish.multidruid.entity.UserEntity">
+        UPDATE
+        user
+        SET
+        <if test="username != null">username = #{username},</if>
+        <if test="password != null">password = #{password},</if>
+        <if test="email != null">email = #{email},</if>
+        <if test="phone != null">phone = #{phone},</if>
+        <if test="question != null">question = #{question},</if>
+        <if test="answer != null">answer = #{answer},</if>
+        update_time = now()
+        WHERE
+        id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Integer">
+        DELETE
+        FROM user
+        WHERE
+        id = #{id}
+    </delete>
+
+    <select id="getCount" resultType="Integer">
+        SELECT
+        count(1)
+        FROM
+        user
+    </select>
+
+</mapper>
