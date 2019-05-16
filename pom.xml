@@ -17,6 +17,9 @@
 		<module>mybatis-annotation</module>
         <module>druid</module>
 		<module>multi-druid</module>
+        <module>redis-basic</module>
+        <module>redis-cache</module>
+		<module>redis-session</module>
 	</modules>
 
 </project>

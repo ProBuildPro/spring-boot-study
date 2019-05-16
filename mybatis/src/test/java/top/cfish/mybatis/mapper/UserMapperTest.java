@@ -98,7 +98,7 @@ public class UserMapperTest extends MybatisApplicationTests
 	@Test
 	public void getUserTest()
 	{
-		UserEntity user = userMapper.getUser("isisiwish-mybatis", "pass");
+		UserEntity user = userMapper.getUser("isisiwish", "5411C919B8BF4B9F27D6C624DDF8F160");
 		log.info("{}", JSON.toJSONString(user));
 	}
 }
