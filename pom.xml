@@ -20,6 +20,7 @@
         <module>redis-basic</module>
         <module>redis-cache</module>
 		<module>redis-session</module>
+		<module>mongodb-template</module>
 	</modules>
 
 </project>
