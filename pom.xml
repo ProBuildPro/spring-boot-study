@@ -21,6 +21,8 @@
         <module>redis-cache</module>
 		<module>redis-session</module>
 		<module>mongodb-template</module>
+		<module>mongodb-repository</module>
+		<module>mongodb-multi</module>
 	</modules>
 
 </project>
