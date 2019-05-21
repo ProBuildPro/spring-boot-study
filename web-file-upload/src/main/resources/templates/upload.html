@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>file upload</title>
+    <link href="/static/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/common.css" rel='stylesheet' type='text/css'/>
+</head>
+<body>
+<p>Spring Boot文件上传</p>
+<form action="/file_upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="file"/>
+    <input type="submit" value="文件上传"/>
+</form>
+</body>
+</html>
