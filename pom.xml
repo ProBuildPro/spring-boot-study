@@ -23,6 +23,11 @@
 		<module>mongodb-template</module>
 		<module>mongodb-repository</module>
 		<module>mongodb-multi</module>
+		<module>job-scheduler</module>
+		<module>job-quartz</module>
+		<module>mail</module>
+		<module>web-file-upload</module>
+		<module>web-file-upload-fastdfs</module>
 	</modules>
 
 </project>
