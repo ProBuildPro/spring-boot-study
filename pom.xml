@@ -17,17 +17,21 @@
 		<module>mybatis-annotation</module>
         <module>druid</module>
 		<module>multi-druid</module>
-        <module>redis-basic</module>
-        <module>redis-cache</module>
-		<module>redis-session</module>
 		<module>mongodb-template</module>
 		<module>mongodb-repository</module>
 		<module>mongodb-multi</module>
 		<module>job-scheduler</module>
 		<module>job-quartz</module>
 		<module>mail</module>
+		<module>redis-basic</module>
+		<module>redis-cache</module>
+		<module>redis-session</module>
 		<module>web-file-upload</module>
 		<module>web-file-upload-fastdfs</module>
+		<module>web-websocket</module>
+		<module>web-swagger</module>
+		<module>web-restful</module>
+		<module>jdbc-template</module>
 	</modules>
 
 </project>
