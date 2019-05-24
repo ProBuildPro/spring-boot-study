@@ -33,6 +33,8 @@
 		<module>web-restful</module>
 		<module>jdbc-template</module>
 		<module>jdbc-template-multi</module>
+		<module>mybatis-multi</module>
+		<module>mybatis-annotation-multi</module>
 	</modules>
 
 </project>
