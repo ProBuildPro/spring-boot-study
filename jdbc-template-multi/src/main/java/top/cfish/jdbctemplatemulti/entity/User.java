@@ -1,4 +1,4 @@
-package top.cfish.jdbctemplate.entity;
+package top.cfish.jdbctemplatemulti.entity;
 
 import lombok.Getter;
 import lombok.Setter;

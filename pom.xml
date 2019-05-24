@@ -32,6 +32,7 @@
 		<module>web-swagger</module>
 		<module>web-restful</module>
 		<module>jdbc-template</module>
+		<module>jdbc-template-multi</module>
 	</modules>
 
 </project>
