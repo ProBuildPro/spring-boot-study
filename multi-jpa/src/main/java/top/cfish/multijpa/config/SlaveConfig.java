@@ -54,7 +54,6 @@ public class SlaveConfig
 	@Bean(name = "slaveEntityManagerFactory")
 	public LocalContainerEntityManagerFactoryBean slaveEntityManagerFactory(EntityManagerFactoryBuilder builder)
 	{
-		
 		Map<String, Object> properties = hibernateProperties.determineHibernateProperties(jpaProperties.getProperties(), new HibernateSettings());
 		return builder.dataSource(slaveDataSource)
 				.packages("top.cfish.multijpa.entity")
