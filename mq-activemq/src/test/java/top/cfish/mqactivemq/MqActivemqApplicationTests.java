@@ -1,11 +1,9 @@
 package top.cfish.mqactivemq;
 
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.rule.OutputCapture;
 import org.springframework.test.context.junit4.SpringRunner;
 import top.cfish.mqactivemq.producer.Producer;
 
@@ -13,9 +11,6 @@ import top.cfish.mqactivemq.producer.Producer;
 @SpringBootTest
 public class MqActivemqApplicationTests
 {
-	@Rule
-	public OutputCapture outputCapture = new OutputCapture();
-	
 	@Autowired
 	private Producer producer;
 	
@@ -24,7 +19,7 @@ public class MqActivemqApplicationTests
 	{
 		for (int i = 0; i < 100; i++)
 		{
-			this.producer.sendQueue("Test queue message" + i);
+			this.producer.sendQueue("Test queue message " + i);
 		}
 		Thread.sleep(1000L);
 	}
@@ -34,7 +29,7 @@ public class MqActivemqApplicationTests
 	{
 		for (int i = 0; i < 100; i++)
 		{
-			this.producer.sendTopic("Test Topic message" + i);
+			this.producer.sendTopic("Test Topic message " + i);
 		}
 		Thread.sleep(1000L);
 	}
