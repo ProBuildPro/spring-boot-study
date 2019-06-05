@@ -36,7 +36,7 @@ public class ProducerTest extends MqRocketmqProducerApplicationTests
 	@Test
 	public void test()
 	{
-		StockChangeMessage msg = new StockChangeMessage(10086L, 31);
+		StockChangeMessage msg = new StockChangeMessage(25286635L, 31);
 		String rs = pushMsg(JSON.toJSONString(msg));
 		log.info("rs : {}", rs);
 	}
