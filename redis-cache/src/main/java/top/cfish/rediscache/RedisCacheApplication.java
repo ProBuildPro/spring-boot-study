@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @MapperScan("top.cfish.rediscache.mapper")
 public class RedisCacheApplication
 {
-	public static void main(String[] args)
-	{
-		SpringApplication.run(RedisCacheApplication.class, args);
-	}
+    public static void main(String[] args)
+    {
+        SpringApplication.run(RedisCacheApplication.class, args);
+    }
 }

@@ -13,9 +13,9 @@ import org.quartz.JobExecutionException;
 @Slf4j
 public class SchedulerAJob implements Job
 {
-	@Override
-	public void execute(JobExecutionContext context) throws JobExecutionException
-	{
-		log.info("schedule JobB is running ...");
-	}
+    @Override
+    public void execute(JobExecutionContext context) throws JobExecutionException
+    {
+        log.info("schedule JobB is running ...");
+    }
 }

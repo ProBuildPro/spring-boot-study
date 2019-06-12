@@ -12,12 +12,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer
 {
-	/**
-	 * 静态资源加载配置
-	 */
-	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry)
-	{
-		registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
-	}
+    /**
+     * 静态资源加载配置
+     */
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry)
+    {
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+    }
 }

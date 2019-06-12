@@ -15,24 +15,24 @@ import org.springframework.data.elasticsearch.annotations.Document;
 @Document(indexName = "customer", type = "customer", shards = 1, replicas = 0, refreshInterval = "-1")
 public class Customer
 {
-	// @Id注解，在ElasticSearch里相当于该列是主键了，在查询时可以直接用主键查询
-	@Id
-	private String id;
-	
-	private String username;
-	
-	private String address;
-	
-	private int age;
-	
-	public Customer()
-	{
-	}
-	
-	public Customer(String username, String address, int age)
-	{
-		this.username = username;
-		this.address = address;
-		this.age = age;
-	}
+    // @Id注解，在ElasticSearch里相当于该列是主键了，在查询时可以直接用主键查询
+    @Id
+    private String id;
+    
+    private String username;
+    
+    private String address;
+    
+    private int age;
+    
+    public Customer()
+    {
+    }
+    
+    public Customer(String username, String address, int age)
+    {
+        this.username = username;
+        this.address = address;
+        this.age = age;
+    }
 }

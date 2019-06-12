@@ -15,13 +15,13 @@ import top.cfish.jobquartz.scheduler.CronScheduler;
 @Component
 public class StartupRunner implements CommandLineRunner
 {
-	@Autowired
-	public CronScheduler cronScheduler;
-	
-	@Override
-	public void run(String... args) throws Exception
-	{
-		cronScheduler.scheduleJobs();
-		log.info("定时任务开始执行");
-	}
+    @Autowired
+    public CronScheduler cronScheduler;
+    
+    @Override
+    public void run(String... args) throws Exception
+    {
+        cronScheduler.scheduleJobs();
+        log.info("定时任务开始执行");
+    }
 }

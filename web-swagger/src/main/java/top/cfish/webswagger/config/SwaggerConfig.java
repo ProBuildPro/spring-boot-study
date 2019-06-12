@@ -20,25 +20,14 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig
 {
-	@Bean
-	public Docket api()
-	{
-		return new Docket(DocumentationType.SWAGGER_2)
-				.apiInfo(apiInfo())
-				.select()
-				.apis(RequestHandlerSelectors.basePackage("top.cfish.webswagger.controller"))
-				.paths(PathSelectors.any())
-				.build();
-	}
-	
-	private ApiInfo apiInfo()
-	{
-		return new ApiInfoBuilder()
-				.title("客户管理")
-				.description("客户管理中心API 1.0操作文档")
-				.termsOfServiceUrl("https://cfish.top/")
-				.version("1.0")
-				.contact(new Contact("isisiwish", "https://cfish.top/", "isisiwish#qq.com"))
-				.build();
-	}
+    @Bean
+    public Docket api()
+    {
+        return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select().apis(RequestHandlerSelectors.basePackage("top.cfish.webswagger.controller")).paths(PathSelectors.any()).build();
+    }
+    
+    private ApiInfo apiInfo()
+    {
+        return new ApiInfoBuilder().title("客户管理").description("客户管理中心API 1.0操作文档").termsOfServiceUrl("https://cfish.top/").version("1.0").contact(new Contact("isisiwish", "https://cfish.top/", "isisiwish#qq.com")).build();
+    }
 }

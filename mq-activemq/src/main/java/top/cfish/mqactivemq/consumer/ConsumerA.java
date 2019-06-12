@@ -13,15 +13,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class ConsumerA
 {
-	@JmsListener(destination = "isisiwish.test.queue", containerFactory = "queueListenerFactory")
-	public void receiveQueue(String text)
-	{
-		log.info("ConsumerA queue msg : {}", text);
-	}
-	
-	@JmsListener(destination = "isisiwish.test.topic", containerFactory = "topicListenerFactory")
-	public void receiveTopic(String text)
-	{
-		log.info("ConsumerA topic msg : {}", text);
-	}
+    @JmsListener(destination = "isisiwish.test.queue", containerFactory = "queueListenerFactory")
+    public void receiveQueue(String text)
+    {
+        log.info("ConsumerA queue msg : {}", text);
+    }
+    
+    @JmsListener(destination = "isisiwish.test.topic", containerFactory = "topicListenerFactory")
+    public void receiveTopic(String text)
+    {
+        log.info("ConsumerA topic msg : {}", text);
+    }
 }

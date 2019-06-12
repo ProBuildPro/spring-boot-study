@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MqRocketmqProducerApplication
 {
-	public static void main(String[] args)
-	{
-		SpringApplication.run(MqRocketmqProducerApplication.class, args);
-	}
+    public static void main(String[] args)
+    {
+        SpringApplication.run(MqRocketmqProducerApplication.class, args);
+    }
 }

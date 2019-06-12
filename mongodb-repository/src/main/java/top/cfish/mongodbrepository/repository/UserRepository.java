@@ -12,8 +12,8 @@ import top.cfish.mongodbrepository.entity.User;
  */
 public interface UserRepository extends MongoRepository<User, Long>
 {
-	User findByUsername(String username);
-
-	@Override
-	Page<User> findAll(Pageable pageable);
+    User findByUsername(String username);
+    
+    @Override
+    Page<User> findAll(Pageable pageable);
 }

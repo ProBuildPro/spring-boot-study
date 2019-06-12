@@ -11,13 +11,13 @@ import top.cfish.mqactivemqtopic.producer.Producer;
 @SpringBootTest
 public class MqActivemqTopicApplicationTests
 {
-	@Autowired
-	private Producer producer;
-	
-	@Test
-	public void sendSimpleTopicMessage() throws InterruptedException
-	{
-		this.producer.sendTopic("Test Topic message");
-		Thread.sleep(1000L);
-	}
+    @Autowired
+    private Producer producer;
+    
+    @Test
+    public void sendSimpleTopicMessage() throws InterruptedException
+    {
+        this.producer.sendTopic("Test Topic message");
+        Thread.sleep(1000L);
+    }
 }

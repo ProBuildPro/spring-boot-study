@@ -21,86 +21,86 @@ import top.cfish.webrestful.WebRestfulApplicationTests;
 @Slf4j
 public class MessageControllerTest extends WebRestfulApplicationTests
 {
-	@Autowired
-	private WebApplicationContext applicationContext;
-	
-	private MockMvc mockMvc;
-	
-	private void saveMessages()
-	{
-		for (int i = 1; i < 10; i++)
-		{
-			final MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-			params.add("text", "text" + i);
-			params.add("summary", "summary" + i);
-			try
-			{
-				MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/message").params(params)).andReturn();
-			}
-			catch (Exception e)
-			{
-				e.printStackTrace();
-			}
-		}
-	}
-	
-	@Before
-	public void setup()
-	{
-		this.mockMvc = MockMvcBuilders.webAppContextSetup(this.applicationContext).build();
-		saveMessages();
-	}
-	
-	@Test
-	public void saveMessage() throws Exception
-	{
-		final MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-		params.add("text", "text");
-		params.add("summary", "summary");
-		String mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/message").params(params)).andReturn().getResponse().getContentAsString();
-		log.info("{}", mvcResult);
-	}
-	
-	@Test
-	public void getAllMessages() throws Exception
-	{
-		String mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/messages")).andReturn().getResponse().getContentAsString();
-		log.info("{}", mvcResult);
-	}
-	
-	@Test
-	public void getMessage() throws Exception
-	{
-		String mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/message/6")).andReturn().getResponse().getContentAsString();
-		log.info("{}", mvcResult);
-	}
-	
-	@Test
-	public void modifyMessage() throws Exception
-	{
-		final MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-		params.add("id", "6");
-		params.add("text", "text");
-		params.add("summary", "summary");
-		String mvcResult = mockMvc.perform(MockMvcRequestBuilders.put("/message").params(params)).andReturn().getResponse().getContentAsString();
-		log.info("{}", mvcResult);
-	}
-	
-	@Test
-	public void patchMessage() throws Exception
-	{
-		final MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-		params.add("id", "6");
-		params.add("text", "text");
-		String mvcResult = mockMvc.perform(MockMvcRequestBuilders.patch("/message/text").params(params)).andReturn().getResponse().getContentAsString();
-		log.info("{}", mvcResult);
-	}
-	
-	@Test
-	public void deleteMessage() throws Exception
-	{
-		mockMvc.perform(MockMvcRequestBuilders.delete("/message/6")).andReturn();
-		String mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/messages")).andReturn().getResponse().getContentAsString();
-		log.info("{}", mvcResult);
-	}
+    @Autowired
+    private WebApplicationContext applicationContext;
+    
+    private MockMvc mockMvc;
+    
+    private void saveMessages()
+    {
+        for (int i = 1; i < 10; i++)
+        {
+            final MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+            params.add("text", "text" + i);
+            params.add("summary", "summary" + i);
+            try
+            {
+                MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/message").params(params)).andReturn();
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+    @Before
+    public void setup()
+    {
+        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.applicationContext).build();
+        saveMessages();
+    }
+    
+    @Test
+    public void saveMessage() throws Exception
+    {
+        final MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+        params.add("text", "text");
+        params.add("summary", "summary");
+        String mvcResult = mockMvc.perform(MockMvcRequestBuilders.post("/message").params(params)).andReturn().getResponse().getContentAsString();
+        log.info("{}", mvcResult);
+    }
+    
+    @Test
+    public void getAllMessages() throws Exception
+    {
+        String mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/messages")).andReturn().getResponse().getContentAsString();
+        log.info("{}", mvcResult);
+    }
+    
+    @Test
+    public void getMessage() throws Exception
+    {
+        String mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/message/6")).andReturn().getResponse().getContentAsString();
+        log.info("{}", mvcResult);
+    }
+    
+    @Test
+    public void modifyMessage() throws Exception
+    {
+        final MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+        params.add("id", "6");
+        params.add("text", "text");
+        params.add("summary", "summary");
+        String mvcResult = mockMvc.perform(MockMvcRequestBuilders.put("/message").params(params)).andReturn().getResponse().getContentAsString();
+        log.info("{}", mvcResult);
+    }
+    
+    @Test
+    public void patchMessage() throws Exception
+    {
+        final MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
+        params.add("id", "6");
+        params.add("text", "text");
+        String mvcResult = mockMvc.perform(MockMvcRequestBuilders.patch("/message/text").params(params)).andReturn().getResponse().getContentAsString();
+        log.info("{}", mvcResult);
+    }
+    
+    @Test
+    public void deleteMessage() throws Exception
+    {
+        mockMvc.perform(MockMvcRequestBuilders.delete("/message/6")).andReturn();
+        String mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/messages")).andReturn().getResponse().getContentAsString();
+        log.info("{}", mvcResult);
+    }
 }

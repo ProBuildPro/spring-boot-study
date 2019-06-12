@@ -15,9 +15,9 @@ import javax.jms.Queue;
 @Configuration
 public class ActiveMqConfig
 {
-	@Bean
-	public Queue queue()
-	{
-		return new ActiveMQQueue("isisiwish.test.queue");
-	}
+    @Bean
+    public Queue queue()
+    {
+        return new ActiveMQQueue("isisiwish.test.queue");
+    }
 }

@@ -17,24 +17,24 @@ import javax.jms.Topic;
 @Component
 public class Producer
 {
-	@Autowired
-	private JmsMessagingTemplate jmsMessagingTemplate;
-	
-	@Autowired
-	private Queue queue;
-	
-	@Autowired
-	private Topic topic;
-	
-	public void sendQueue(String msg)
-	{
-		log.info("send queue msg : {}", msg);
-		this.jmsMessagingTemplate.convertAndSend(this.queue, msg);
-	}
-	
-	public void sendTopic(String msg)
-	{
-		log.info("send topic msg : {}", msg);
-		this.jmsMessagingTemplate.convertAndSend(this.topic, msg);
-	}
+    @Autowired
+    private JmsMessagingTemplate jmsMessagingTemplate;
+    
+    @Autowired
+    private Queue queue;
+    
+    @Autowired
+    private Topic topic;
+    
+    public void sendQueue(String msg)
+    {
+        log.info("send queue msg : {}", msg);
+        this.jmsMessagingTemplate.convertAndSend(this.queue, msg);
+    }
+    
+    public void sendTopic(String msg)
+    {
+        log.info("send topic msg : {}", msg);
+        this.jmsMessagingTemplate.convertAndSend(this.topic, msg);
+    }
 }

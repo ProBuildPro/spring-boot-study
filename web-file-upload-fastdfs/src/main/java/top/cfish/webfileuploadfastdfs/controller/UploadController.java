@@ -22,70 +22,70 @@ import java.io.InputStream;
 @Controller
 public class UploadController
 {
-	private static String UPLOADED_FOLDER = "E:\\D\\spring-boot-study\\web-file-upload\\src\\main\\resources\\file_upload\\";
-	
-	@GetMapping("/upload")
-	public String index()
-	{
-		return "upload";
-	}
-	
-	@GetMapping("/uploadResult")
-	public String uploadStatus()
-	{
-		return "uploadresult";
-	}
-	
-	@PostMapping("/file_upload")
-	public String singleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes)
-	{
-		if (file.isEmpty())
-		{
-			redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
-			return "redirect:uploadResult";
-		}
-		try
-		{
-			String path = saveFile(file);
-			redirectAttributes.addFlashAttribute("message", "Successfully uploaded '" + file.getOriginalFilename() + "'");
-			redirectAttributes.addFlashAttribute("path", "file path url : " + path);
-		}
-		catch (Exception e)
-		{
-			log.error("upload file failed", e);
-		}
-		return "redirect:/uploadResult";
-	}
-	
-	private String saveFile(MultipartFile multipartFile) throws IOException
-	{
-		String[] fileAbsolutePath = {};
-		String fileName = multipartFile.getOriginalFilename();
-		String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
-		byte[] file_buff = null;
-		InputStream inputStream = multipartFile.getInputStream();
-		if (inputStream != null)
-		{
-			int len1 = inputStream.available();
-			file_buff = new byte[len1];
-			inputStream.read(file_buff);
-		}
-		inputStream.close();
-		FastDFSFile file = new FastDFSFile(fileName, file_buff, ext);
-		try
-		{
-			// upload to fastdfs
-			fileAbsolutePath = FastDFSClient.upload(file);
-		}
-		catch (Exception e)
-		{
-			log.error("upload file Exception", e);
-		}
-		if (fileAbsolutePath == null)
-		{
-			log.error("upload file failed, please upload again");
-		}
-		String path = FastDFSClient.getTrackerUrl() + fileAbsolutePath[0] + "/" + fileAbsolutePath[1];
-		return path;
-	}
+    private static String UPLOADED_FOLDER = "E:\\Me\\spring-boot-study\\web-file-upload-fastdfs\\src\\main\\resources\\file_upload\\";
+    
+    @GetMapping("/upload")
+    public String index()
+    {
+        return "upload";
+    }
+    
+    @GetMapping("/uploadResult")
+    public String uploadStatus()
+    {
+        return "uploadresult";
+    }
+    
+    @PostMapping("/file_upload")
+    public String singleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes)
+    {
+        if (file.isEmpty())
+        {
+            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
+            return "redirect:uploadResult";
+        }
+        try
+        {
+            String path = saveFile(file);
+            redirectAttributes.addFlashAttribute("message", "Successfully uploaded '" + file.getOriginalFilename() + "'");
+            redirectAttributes.addFlashAttribute("path", "file path url : " + path);
+        }
+        catch (Exception e)
+        {
+            log.error("upload file failed", e);
+        }
+        return "redirect:/uploadResult";
+    }
+    
+    private String saveFile(MultipartFile multipartFile) throws IOException
+    {
+        String[] fileAbsolutePath = {};
+        String fileName = multipartFile.getOriginalFilename();
+        String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
+        byte[] file_buff = null;
+        InputStream inputStream = multipartFile.getInputStream();
+        if (inputStream != null)
+        {
+            int len1 = inputStream.available();
+            file_buff = new byte[len1];
+            inputStream.read(file_buff);
+        }
+        inputStream.close();
+        FastDFSFile file = new FastDFSFile(fileName, file_buff, ext);
+        try
+        {
+            // upload to fastdfs
+            fileAbsolutePath = FastDFSClient.upload(file);
+        }
+        catch (Exception e)
+        {
+            log.error("upload file Exception", e);
+        }
+        if (fileAbsolutePath == null)
+        {
+            log.error("upload file failed, please upload again");
+        }
+        String path = FastDFSClient.getTrackerUrl() + fileAbsolutePath[0] + "/" + fileAbsolutePath[1];
+        return path;
+    }
 }

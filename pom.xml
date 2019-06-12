@@ -10,31 +10,47 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>basic-web</module>
-		<module>basic-jpa</module>
-		<module>multi-jpa</module>
-		<module>mybatis</module>
-		<module>mybatis-annotation</module>
-        <module>druid</module>
-		<module>multi-druid</module>
-		<module>mongodb-template</module>
-		<module>mongodb-repository</module>
-		<module>mongodb-multi</module>
-		<module>job-scheduler</module>
-		<module>job-quartz</module>
-		<module>mail</module>
-		<module>redis-basic</module>
-		<module>redis-cache</module>
-		<module>redis-session</module>
+
+		<module>web-basic</module>
+		<module>web-restful</module>
 		<module>web-file-upload</module>
 		<module>web-file-upload-fastdfs</module>
 		<module>web-websocket</module>
 		<module>web-swagger</module>
-		<module>web-restful</module>
-		<module>jdbc-template</module>
-		<module>jdbc-template-multi</module>
-		<module>mybatis-multi</module>
-		<module>mybatis-annotation-multi</module>
+
+		<module>db-jdbc-template</module>
+		<module>db-jdbc-template-multi</module>
+		<module>db-jpa-basic</module>
+		<module>db-jpa-multi</module>
+		<module>db-mybatis</module>
+		<module>db-mybatis-multi</module>
+		<module>db-mybatis-annotation</module>
+		<module>db-mybatis-annotation-multi</module>
+		<module>db-druid</module>
+		<module>db-druid-multi</module>
+
+		<module>redis-basic</module>
+		<module>redis-cache</module>
+		<module>redis-session</module>
+		<module>mongodb-template</module>
+		<module>mongodb-repository</module>
+		<module>mongodb-multi</module>
+		<module>elasticsearch</module>
+		<module>mq-activemq</module>
+		<module>mq-activemq-queue</module>
+		<module>mq-activemq-topic</module>
+		<module>mq-rocketmq-producer</module>
+
+		<module>mail</module>
+		<module>job-scheduler</module>
+		<module>job-quartz</module>
+
+		<module>ops-actuator</module>
+		<module>ops-admin-client</module>
+		<module>ops-admin-server</module>
+		<module>ops-test</module>
+		<module>ops-package</module>
+
 	</modules>
 
 </project>

@@ -9,11 +9,11 @@ import top.cfish.mongodbtemplate.entity.User;
  */
 public interface UserDao
 {
-	void save(User user);
-	
-	User findUserByUsername(String username);
-	
-	long update(User user);
-	
-	void deleteById(Long id);
+    void save(User user);
+    
+    User findUserByUsername(String username);
+    
+    long update(User user);
+    
+    void deleteById(Long id);
 }

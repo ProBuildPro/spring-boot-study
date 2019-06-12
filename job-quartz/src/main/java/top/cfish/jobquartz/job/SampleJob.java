@@ -17,11 +17,11 @@ import org.springframework.scheduling.quartz.QuartzJobBean;
 @Setter
 public class SampleJob extends QuartzJobBean
 {
-	private String name;
-	
-	@Override
-	protected void executeInternal(JobExecutionContext context) throws JobExecutionException
-	{
-		log.info("Hello {}", this.name);
-	}
+    private String name;
+    
+    @Override
+    protected void executeInternal(JobExecutionContext context) throws JobExecutionException
+    {
+        log.info("Hello {}", this.name);
+    }
 }

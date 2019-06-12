@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @MapperScan("top.cfish.redissession.mapper")
 public class RedisSessionApplication
 {
-	public static void main(String[] args)
-	{
-		SpringApplication.run(RedisSessionApplication.class, args);
-	}
+    public static void main(String[] args)
+    {
+        SpringApplication.run(RedisSessionApplication.class, args);
+    }
 }

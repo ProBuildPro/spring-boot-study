@@ -18,28 +18,28 @@ import java.util.List;
 @SpringBootTest
 public class MongodbMultiApplicationTests
 {
-	@Autowired
-	UserPrimaryRepository userPrimaryRepository;
-	
-	@Autowired
-	UserSecondaryRepository userSecondaryRepository;
-	
-	@Test
-	public void TestMulti()
-	{
-		this.userPrimaryRepository.save(new User(1L,"isisiwish-frist", "123456"));
-		this.userSecondaryRepository.save(new User(1L,"isisiwish-sec", "654321"));
-		
-		List<User> primaries = this.userPrimaryRepository.findAll();
-		for (User primary : primaries)
-		{
-			log.info("{}", JSON.toJSONString(primary));
-		}
-		
-		List<User> secondaries = this.userSecondaryRepository.findAll();
-		for (User secondary : secondaries)
-		{
-			log.info("{}", JSON.toJSONString(secondary));
-		}
-	}
+    @Autowired
+    UserPrimaryRepository userPrimaryRepository;
+    
+    @Autowired
+    UserSecondaryRepository userSecondaryRepository;
+    
+    @Test
+    public void TestMulti()
+    {
+        this.userPrimaryRepository.save(new User(1L, "isisiwish-frist", "123456"));
+        this.userSecondaryRepository.save(new User(1L, "isisiwish-sec", "654321"));
+        
+        List<User> primaries = this.userPrimaryRepository.findAll();
+        for (User primary : primaries)
+        {
+            log.info("{}", JSON.toJSONString(primary));
+        }
+        
+        List<User> secondaries = this.userSecondaryRepository.findAll();
+        for (User secondary : secondaries)
+        {
+            log.info("{}", JSON.toJSONString(secondary));
+        }
+    }
 }

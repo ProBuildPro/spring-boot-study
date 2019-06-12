@@ -9,5 +9,4 @@ import top.cfish.mongodbmulti.entity.User;
  * @time: 14:05
  */
 public interface UserPrimaryRepository extends MongoRepository<User, Long>
-{
-}
+{}

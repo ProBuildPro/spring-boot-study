@@ -13,9 +13,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class ConsumerA
 {
-	@JmsListener(destination = "isisiwish.test.topic")
-	public void receiveTopic(String text)
-	{
-		log.info("ConsumerA topic msg : {}", text);
-	}
+    @JmsListener(destination = "isisiwish.test.topic")
+    public void receiveTopic(String text)
+    {
+        log.info("ConsumerA topic msg : {}", text);
+    }
 }

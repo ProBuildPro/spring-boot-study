@@ -21,14 +21,14 @@ import java.io.Serializable;
 @EnableCaching
 public class RedisConfig extends CachingConfigurerSupport
 {
-	@Bean
-	public RedisTemplate<String, Serializable> redisTemplate(LettuceConnectionFactory connectionFactory)
-	{
-		RedisTemplate<String, Serializable> redisTemplate = new RedisTemplate<>();
-		redisTemplate.setKeySerializer(new StringRedisSerializer());
-		redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
-		redisTemplate.setConnectionFactory(connectionFactory);
-		return redisTemplate;
-	}
+    @Bean
+    public RedisTemplate<String, Serializable> redisTemplate(LettuceConnectionFactory connectionFactory)
+    {
+        RedisTemplate<String, Serializable> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setKeySerializer(new StringRedisSerializer());
+        redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer());
+        redisTemplate.setConnectionFactory(connectionFactory);
+        return redisTemplate;
+    }
 }
 

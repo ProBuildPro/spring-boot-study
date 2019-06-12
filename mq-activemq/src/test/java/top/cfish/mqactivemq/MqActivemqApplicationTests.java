@@ -11,26 +11,26 @@ import top.cfish.mqactivemq.producer.Producer;
 @SpringBootTest
 public class MqActivemqApplicationTests
 {
-	@Autowired
-	private Producer producer;
-	
-	@Test
-	public void sendSimpleQueueMessage() throws InterruptedException
-	{
-		for (int i = 0; i < 100; i++)
-		{
-			this.producer.sendQueue("Test queue message " + i);
-		}
-		Thread.sleep(1000L);
-	}
-	
-	@Test
-	public void sendSimpleTopicMessage() throws InterruptedException
-	{
-		for (int i = 0; i < 100; i++)
-		{
-			this.producer.sendTopic("Test Topic message " + i);
-		}
-		Thread.sleep(1000L);
-	}
+    @Autowired
+    private Producer producer;
+    
+    @Test
+    public void sendSimpleQueueMessage() throws InterruptedException
+    {
+        for (int i = 0; i < 100; i++)
+        {
+            this.producer.sendQueue("Test queue message " + i);
+        }
+        Thread.sleep(1000L);
+    }
+    
+    @Test
+    public void sendSimpleTopicMessage() throws InterruptedException
+    {
+        for (int i = 0; i < 100; i++)
+        {
+            this.producer.sendTopic("Test Topic message " + i);
+        }
+        Thread.sleep(1000L);
+    }
 }

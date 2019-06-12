@@ -21,52 +21,52 @@ import java.io.UnsupportedEncodingException;
 @Slf4j
 public class ProducerTest extends MqRocketmqProducerApplicationTests
 {
-	@Getter
-	@Setter
-	@AllArgsConstructor
-	static class StockChangeMessage
-	{
-		private Long productId;
-		private Integer warehouseId;
-	}
-	
-	@Autowired
-	private Producer producer;
-	
-	@Test
-	public void test()
-	{
-		StockChangeMessage msg = new StockChangeMessage(25286635L, 31);
-		String rs = pushMsg(JSON.toJSONString(msg));
-		log.info("rs : {}", rs);
-	}
-	
-	private String pushMsg(String msg)
-	{
-		try
-		{
-			return producer.send("STOCK_CHANGE_EVENT_TOPIC", "TAG_DANGDANG", msg);
-		}
-		catch (InterruptedException e)
-		{
-			e.printStackTrace();
-		}
-		catch (RemotingException e)
-		{
-			e.printStackTrace();
-		}
-		catch (MQClientException e)
-		{
-			e.printStackTrace();
-		}
-		catch (MQBrokerException e)
-		{
-			e.printStackTrace();
-		}
-		catch (UnsupportedEncodingException e)
-		{
-			e.printStackTrace();
-		}
-		return "ERROR";
-	}
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    static class StockChangeMessage
+    {
+        private Long productId;
+        private Integer warehouseId;
+    }
+    
+    @Autowired
+    private Producer producer;
+    
+    @Test
+    public void test()
+    {
+        StockChangeMessage msg = new StockChangeMessage(27852548L, 30);
+        String rs = pushMsg(JSON.toJSONString(msg));
+        log.info("rs : {}", rs);
+    }
+    
+    private String pushMsg(String msg)
+    {
+        try
+        {
+            return producer.send("STOCK_CHANGE_EVENT_TOPIC", "TAG_DANGDANG", msg);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+        catch (RemotingException e)
+        {
+            e.printStackTrace();
+        }
+        catch (MQClientException e)
+        {
+            e.printStackTrace();
+        }
+        catch (MQBrokerException e)
+        {
+            e.printStackTrace();
+        }
+        catch (UnsupportedEncodingException e)
+        {
+            e.printStackTrace();
+        }
+        return "ERROR";
+    }
 }

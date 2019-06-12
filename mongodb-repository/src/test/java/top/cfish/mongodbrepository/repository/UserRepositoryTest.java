@@ -13,8 +13,6 @@ import top.cfish.mongodbrepository.entity.User;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 /**
  * @author: isisiwish
  * @date: 2019/5/17
@@ -23,61 +21,61 @@ import static org.junit.Assert.*;
 @Slf4j
 public class UserRepositoryTest extends MongodbRepositoryApplicationTests
 {
-	@Autowired
-	private UserRepository userRepository;
-	
-	@Test
-	public void save()
-	{
-		User user = new User();
-		user.setId(2L);
-		user.setUsername("isisiwish");
-		user.setPassword("pass");
-		userRepository.save(user);
-	}
-	
-	@Test
-	public void findUserByUsername()
-	{
-		User user = userRepository.findByUsername("isisiwish");
-		log.info("{}", JSON.toJSONString(user));
-	}
-	
-	@Test
-	public void update()
-	{
-		User user = new User();
-		user.setId(2L);
-		user.setUsername("isisiwish");
-		user.setPassword("password");
-		userRepository.save(user);
-	}
-	
-	@Test
-	public void deleteById()
-	{
-		userRepository.deleteById(2L);
-	}
-	
-	@Test
-	public void testPage()
-	{
-		for (long i = 0; i < 100; i++)
-		{
-			User user = new User();
-			user.setId(i);
-			user.setUsername("isisiwish:" + i);
-			user.setPassword("pass");
-			userRepository.save(user);
-		}
-		
-		Sort sort = new Sort(Sort.Direction.DESC, "id");
-		Pageable pageable = PageRequest.of(0, 5, sort);
-		Page<User> page = userRepository.findAll(pageable);
-		List<User> userList = page.getContent();
-		for (User user : userList)
-		{
-			log.info("{}", JSON.toJSONString(user));
-		}
-	}
+    @Autowired
+    private UserRepository userRepository;
+    
+    @Test
+    public void save()
+    {
+        User user = new User();
+        user.setId(2L);
+        user.setUsername("isisiwish");
+        user.setPassword("pass");
+        userRepository.save(user);
+    }
+    
+    @Test
+    public void findUserByUsername()
+    {
+        User user = userRepository.findByUsername("isisiwish");
+        log.info("{}", JSON.toJSONString(user));
+    }
+    
+    @Test
+    public void update()
+    {
+        User user = new User();
+        user.setId(2L);
+        user.setUsername("isisiwish");
+        user.setPassword("password");
+        userRepository.save(user);
+    }
+    
+    @Test
+    public void deleteById()
+    {
+        userRepository.deleteById(2L);
+    }
+    
+    @Test
+    public void testPage()
+    {
+        for (long i = 0; i < 100; i++)
+        {
+            User user = new User();
+            user.setId(i);
+            user.setUsername("isisiwish:" + i);
+            user.setPassword("pass");
+            userRepository.save(user);
+        }
+        
+        Sort sort = new Sort(Sort.Direction.DESC, "id");
+        Pageable pageable = PageRequest.of(0, 5, sort);
+        Page<User> page = userRepository.findAll(pageable);
+        List<User> userList = page.getContent();
+        for (User user : userList)
+        {
+            log.info("{}", JSON.toJSONString(user));
+        }
+    }
 }

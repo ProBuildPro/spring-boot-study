@@ -15,10 +15,10 @@ import java.util.Calendar;
 @Setter
 public class Message
 {
-	private Long id;
-	@ApiModelProperty(value = "消息体")
-	private String text;
-	@ApiModelProperty(value = "消息总结")
-	private String summary;
-	private Calendar created = Calendar.getInstance();
+    private Long id;
+    @ApiModelProperty(value = "消息体")
+    private String text;
+    @ApiModelProperty(value = "消息总结")
+    private String summary;
+    private Calendar created = Calendar.getInstance();
 }

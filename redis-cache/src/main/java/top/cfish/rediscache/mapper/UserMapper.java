@@ -12,19 +12,19 @@ import java.util.Map;
  */
 public interface UserMapper
 {
-	UserEntity getOne(Integer id);
-	
-	List<UserEntity> getAll();
-	
-	int insert(UserEntity user);
-	
-	int update(UserEntity user);
-	
-	int delete(Integer id);
-	
-	int getCount();
-	
-	UserEntity getUser(Map paramMap);
-	
-	UserEntity getUserByUsername(String username);
+    UserEntity getOne(Integer id);
+    
+    List<UserEntity> getAll();
+    
+    int insert(UserEntity user);
+    
+    int update(UserEntity user);
+    
+    int delete(Integer id);
+    
+    int getCount();
+    
+    UserEntity getUser(Map paramMap);
+    
+    UserEntity getUserByUsername(String username);
 }

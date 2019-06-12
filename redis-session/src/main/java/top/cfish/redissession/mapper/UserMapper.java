@@ -13,19 +13,19 @@ import java.util.List;
  */
 public interface UserMapper
 {
-	UserEntity getOne(Integer id);
-	
-	List<UserEntity> getAll();
-	
-	void insert(UserEntity user);
-	
-	int update(UserEntity user);
-	
-	int delete(Integer id);
-	
-	int getCount();
-	
-	UserEntity getUser(@Param("username") String username, @Param("password") String password);
-	
-	UserEntity getUserByUsername(String username);
+    UserEntity getOne(Integer id);
+    
+    List<UserEntity> getAll();
+    
+    void insert(UserEntity user);
+    
+    int update(UserEntity user);
+    
+    int delete(Integer id);
+    
+    int getCount();
+    
+    UserEntity getUser(@Param("username") String username, @Param("password") String password);
+    
+    UserEntity getUserByUsername(String username);
 }

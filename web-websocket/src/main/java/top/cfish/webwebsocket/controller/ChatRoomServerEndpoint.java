@@ -21,51 +21,51 @@ import static top.cfish.webwebsocket.util.WebSocketUtil.sendMessageAll;
 @ServerEndpoint("/chat-room/{username}")
 public class ChatRoomServerEndpoint
 {
-	@OnOpen
-	public void openSession(@PathParam("username") String username, Session session)
-	{
-		ONLINE_USER_SESSIONS.put(username, session);
-		String message = "欢迎用户[" + username + "]来到聊天室";
-		log.info("用户登录 : {}", message);
-		sendMessageAll(message);
-	}
-	
-	@OnMessage
-	public void onMessage(@PathParam("username") String username, String message)
-	{
-		log.info("发送消息 : "+message);
-		sendMessageAll("用户[" + username + "] : " + message);
-	}
-	
-	@OnClose
-	public void onClose(@PathParam("username") String username, Session session)
-	{
-		// 当前的Session移除
-		ONLINE_USER_SESSIONS.remove(username);
-		
-		// 通知其他人当前用户已经离开聊天室了
-		sendMessageAll("用户[" + username + "]已经离开聊天室");
-		try
-		{
-			session.close();
-		}
-		catch (IOException e)
-		{
-			log.error("onClose excepiton", e);
-		}
-	}
-	
-	@OnError
-	public void onError(Session session, Throwable throwable)
-	{
-		try
-		{
-			session.close();
-		}
-		catch (IOException e)
-		{
-			log.error("onError excepiton", e);
-		}
-		log.info("Throwable msg {}", throwable.getMessage());
-	}
+    @OnOpen
+    public void openSession(@PathParam("username") String username, Session session)
+    {
+        ONLINE_USER_SESSIONS.put(username, session);
+        String message = "欢迎用户[" + username + "]来到聊天室";
+        log.info("用户登录 : {}", message);
+        sendMessageAll(message);
+    }
+    
+    @OnMessage
+    public void onMessage(@PathParam("username") String username, String message)
+    {
+        log.info("发送消息 : " + message);
+        sendMessageAll("用户[" + username + "] : " + message);
+    }
+    
+    @OnClose
+    public void onClose(@PathParam("username") String username, Session session)
+    {
+        // 当前的Session移除
+        ONLINE_USER_SESSIONS.remove(username);
+        
+        // 通知其他人当前用户已经离开聊天室了
+        sendMessageAll("用户[" + username + "]已经离开聊天室");
+        try
+        {
+            session.close();
+        }
+        catch (IOException e)
+        {
+            log.error("onClose excepiton", e);
+        }
+    }
+    
+    @OnError
+    public void onError(Session session, Throwable throwable)
+    {
+        try
+        {
+            session.close();
+        }
+        catch (IOException e)
+        {
+            log.error("onError excepiton", e);
+        }
+        log.info("Throwable msg {}", throwable.getMessage());
+    }
 }

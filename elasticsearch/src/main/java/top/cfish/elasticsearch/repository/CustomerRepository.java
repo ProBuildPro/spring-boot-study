@@ -14,16 +14,16 @@ import java.util.List;
  */
 public interface CustomerRepository extends ElasticsearchRepository<Customer, String>
 {
-	List<Customer> findByAddress(String address);
-	
-	Customer findByUsername(String username);
-	
-	Page<Customer> findByAddress(String address, Pageable pageable);
-	
-	int deleteByUsername(String username);
-	
-	@Override
-	void deleteById(String s);
-	
-	int deleteCustomerByUsername(String username);
+    List<Customer> findByAddress(String address);
+    
+    Customer findByUsername(String username);
+    
+    Page<Customer> findByAddress(String address, Pageable pageable);
+    
+    int deleteByUsername(String username);
+    
+    @Override
+    void deleteById(String s);
+    
+    int deleteCustomerByUsername(String username);
 }

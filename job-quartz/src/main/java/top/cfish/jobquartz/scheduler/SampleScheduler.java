@@ -13,21 +13,17 @@ import top.cfish.jobquartz.job.SampleJob;
 @Configuration
 public class SampleScheduler
 {
-	@Bean
-	public JobDetail sampleJobDetail()
-	{
-		return JobBuilder.newJob(SampleJob.class)
-				.withIdentity("sampleJob")
-				.usingJobData("name", "isisiwish")
-				.storeDurably()
-				.build();
-	}
-	
-	@Bean
-	public Trigger sampleJobTrigger()
-	{
-		SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(5).repeatForever();
-		
-		return TriggerBuilder.newTrigger().forJob(sampleJobDetail()).withIdentity("sampleTrigger").withSchedule(scheduleBuilder).build();
-	}
+    @Bean
+    public JobDetail sampleJobDetail()
+    {
+        return JobBuilder.newJob(SampleJob.class).withIdentity("sampleJob").usingJobData("name", "isisiwish").storeDurably().build();
+    }
+    
+    @Bean
+    public Trigger sampleJobTrigger()
+    {
+        SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule().withIntervalInSeconds(5).repeatForever();
+        
+        return TriggerBuilder.newTrigger().forJob(sampleJobDetail()).withIdentity("sampleTrigger").withSchedule(scheduleBuilder).build();
+    }
 }

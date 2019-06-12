@@ -13,9 +13,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class ConsumerB
 {
-	@JmsListener(destination = "isisiwish.test.queue")
-	public void receiveQueue(String text)
-	{
-		log.info("ConsumerB queue msg : {}", text);
-	}
+    @JmsListener(destination = "isisiwish.test.queue")
+    public void receiveQueue(String text)
+    {
+        log.info("ConsumerB queue msg : {}", text);
+    }
 }

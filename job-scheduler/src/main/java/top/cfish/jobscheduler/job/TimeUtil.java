@@ -10,10 +10,10 @@ import java.util.Date;
  */
 public class TimeUtil
 {
-	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-	
-	public static String nowDate()
-	{
-		return dateFormat.format(new Date());
-	}
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    
+    public static String nowDate()
+    {
+        return dateFormat.format(new Date());
+    }
 }

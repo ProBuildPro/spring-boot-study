@@ -14,8 +14,8 @@ import java.util.Calendar;
 @Setter
 public class Message
 {
-	private Long id;
-	private String text;
-	private String summary;
-	private Calendar created = Calendar.getInstance();
+    private Long id;
+    private String text;
+    private String summary;
+    private Calendar created = Calendar.getInstance();
 }

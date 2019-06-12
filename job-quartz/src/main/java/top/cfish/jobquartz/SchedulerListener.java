@@ -19,12 +19,12 @@ import top.cfish.jobquartz.scheduler.CronScheduler;
 @EnableScheduling
 public class SchedulerListener
 {
-	@Autowired
-	public CronScheduler cronScheduler;
-	
-	@Scheduled(cron = "0 30 11 25 11 ?")
-	public void schedule() throws SchedulerException
-	{
-		cronScheduler.scheduleJobs();
-	}
+    @Autowired
+    public CronScheduler cronScheduler;
+    
+    @Scheduled(cron = "0 30 11 25 11 ?")
+    public void schedule() throws SchedulerException
+    {
+        cronScheduler.scheduleJobs();
+    }
 }

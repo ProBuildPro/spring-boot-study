@@ -13,11 +13,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class CronSchedulerJob
 {
-	private int count = 0;
-	
-	@Scheduled(cron = "*/5 * * * * ?")
-	private void process()
-	{
-		log.info("CronSchedulerJob runing @{} - {}", TimeUtil.nowDate(), count++);
-	}
+    private int count = 0;
+    
+    @Scheduled(cron = "*/5 * * * * ?")
+    private void process()
+    {
+        log.info("CronSchedulerJob runing @{} - {}", TimeUtil.nowDate(), count++);
+    }
 }

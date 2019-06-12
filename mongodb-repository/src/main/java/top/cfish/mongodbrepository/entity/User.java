@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class User
 {
-	private Long id;
-	private String username;
-	private String password;
+    private Long id;
+    private String username;
+    private String password;
 }

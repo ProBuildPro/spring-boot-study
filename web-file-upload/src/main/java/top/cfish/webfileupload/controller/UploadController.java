@@ -20,71 +20,71 @@ import java.nio.file.Paths;
 @Controller
 public class UploadController
 {
-	private static String UPLOADED_FOLDER = "E:\\D\\spring-boot-study\\web-file-upload\\src\\main\\resources\\file_upload\\";
-	
-	@GetMapping("/upload")
-	public String index()
-	{
-		return "upload";
-	}
-	
-	@GetMapping("/multi")
-	public String uploadMore()
-	{
-		return "multiupload";
-	}
-	
-	@GetMapping("/uploadResult")
-	public String uploadStatus()
-	{
-		return "uploadresult";
-	}
-	
-	@PostMapping("/file_upload")
-	public String singleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes)
-	{
-		if (file.isEmpty())
-		{
-			redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
-			return "redirect:uploadResult";
-		}
-		try
-		{
-			byte[] bytes = file.getBytes();
-			Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
-			Files.write(path, bytes);
-			
-			redirectAttributes.addFlashAttribute("message", "Successfully uploaded '" + file.getOriginalFilename() + "'");
-		}
-		catch (IOException e)
-		{
-			e.printStackTrace();
-		}
-		return "redirect:/uploadResult";
-	}
-	
-	@PostMapping("/multi_file_upload")
-	public String moreFileUpload(@RequestParam("file") MultipartFile[] files, RedirectAttributes redirectAttributes)
-	{
-		if (files.length == 0)
-		{
-			redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
-			return "redirect:uploadResult";
-		}
-		for (MultipartFile file : files)
-		{
-			try
-			{
-				byte[] bytes = file.getBytes();
-				Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
-				Files.write(path, bytes);
-			}
-			catch (IOException e)
-			{
-				e.printStackTrace();
-			}
-		}
-		redirectAttributes.addFlashAttribute("message", "Successfully uploaded all");
-		return "redirect:/uploadResult";
-	}
+    private static String UPLOADED_FOLDER = "E:\\Me\\spring-boot-study\\web-file-upload\\src\\main\\resources\\file_upload";
+    
+    @GetMapping("/upload")
+    public String index()
+    {
+        return "upload";
+    }
+    
+    @GetMapping("/multi")
+    public String uploadMore()
+    {
+        return "multiupload";
+    }
+    
+    @GetMapping("/uploadResult")
+    public String uploadStatus()
+    {
+        return "uploadresult";
+    }
+    
+    @PostMapping("/file_upload")
+    public String singleFileUpload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes)
+    {
+        if (file.isEmpty())
+        {
+            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
+            return "redirect:uploadResult";
+        }
+        try
+        {
+            byte[] bytes = file.getBytes();
+            Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+            Files.write(path, bytes);
+            
+            redirectAttributes.addFlashAttribute("message", "Successfully uploaded '" + file.getOriginalFilename() + "'");
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return "redirect:/uploadResult";
+    }
+    
+    @PostMapping("/multi_file_upload")
+    public String moreFileUpload(@RequestParam("file") MultipartFile[] files, RedirectAttributes redirectAttributes)
+    {
+        if (files.length == 0)
+        {
+            redirectAttributes.addFlashAttribute("message", "Please select a file to upload");
+            return "redirect:uploadResult";
+        }
+        for (MultipartFile file : files)
+        {
+            try
+            {
+                byte[] bytes = file.getBytes();
+                Path path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+                Files.write(path, bytes);
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
+        redirectAttributes.addFlashAttribute("message", "Successfully uploaded all");
+        return "redirect:/uploadResult";
+    }
 }

@@ -22,33 +22,33 @@ import javax.jms.Topic;
 @EnableJms
 public class ActiveMqConfig
 {
-	@Bean("queueListenerFactory")
-	public JmsListenerContainerFactory<?> queueListenerFactory(ConnectionFactory connectionFactory)
-	{
-		DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
-		factory.setConnectionFactory(connectionFactory);
-		factory.setPubSubDomain(false);
-		return factory;
-	}
-	
-	@Bean("topicListenerFactory")
-	public JmsListenerContainerFactory<?> topicListenerFactory(ConnectionFactory connectionFactory)
-	{
-		DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
-		factory.setConnectionFactory(connectionFactory);
-		factory.setPubSubDomain(true);
-		return factory;
-	}
-	
-	@Bean
-	public Queue queue()
-	{
-		return new ActiveMQQueue("isisiwish.test.queue");
-	}
-	
-	@Bean
-	public Topic topic()
-	{
-		return new ActiveMQTopic("isisiwish.test.topic");
-	}
+    @Bean("queueListenerFactory")
+    public JmsListenerContainerFactory<?> queueListenerFactory(ConnectionFactory connectionFactory)
+    {
+        DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
+        factory.setConnectionFactory(connectionFactory);
+        factory.setPubSubDomain(false);
+        return factory;
+    }
+    
+    @Bean("topicListenerFactory")
+    public JmsListenerContainerFactory<?> topicListenerFactory(ConnectionFactory connectionFactory)
+    {
+        DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
+        factory.setConnectionFactory(connectionFactory);
+        factory.setPubSubDomain(true);
+        return factory;
+    }
+    
+    @Bean
+    public Queue queue()
+    {
+        return new ActiveMQQueue("isisiwish.test.queue");
+    }
+    
+    @Bean
+    public Topic topic()
+    {
+        return new ActiveMQTopic("isisiwish.test.topic");
+    }
 }
